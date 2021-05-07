@@ -13,7 +13,7 @@ import SocketService from '@/utils/socket_service'
 SocketService.Instance.connect()
 Vue.prototype.$socket = SocketService.Instance
 
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/'
+axios.defaults.baseURL = process.env.VUE_APP_API || '/api'
 
 Vue.prototype.$http = axios
 

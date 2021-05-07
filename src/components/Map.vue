@@ -53,7 +53,7 @@ export default {
         async initChart(){
             this.chartInstance = this.$echarts.init(this.$refs.map_ref,this.theme)
             /* 获取中国矢量图数据 */
-            const {data:ret} = await axios.get(`http://localhost:8999/static/map/china.json`)
+            const {data:ret} = await axios.get(`http://47.243.97.66/static/map/china.json`)
             this.$echarts.registerMap('china',ret)
             const initOption = {
                 title:{
@@ -86,7 +86,7 @@ export default {
 
                 /* 获取省份地图矢量数据,对地图缓存，防止多次发起请求 */
                 if(!this.mapData[provinceInfo.key]){
-                    const {data:ret} = await axios.get(`http://localhost:8999`+ provinceInfo.path)
+                    const {data:ret} = await axios.get(`47.243.97.66`+ provinceInfo.path)
                     this.mapData[provinceInfo.key] = ret
                     this.$echarts.registerMap(provinceInfo.key,ret)
                 }
